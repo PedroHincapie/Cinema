@@ -82,5 +82,5 @@ ubicacion  VARCHAR(25) NOT NULL,
 estado VARCHAR(1) NOT NULL,
 fecha VARCHAR(25) NULL,
 dia_cerrado VARCHAR(1) NULL,
-FOREIGN KEY (id_sala) REFERENCES sucursales(id_sala)
+FOREIGN KEY (id_sala) REFERENCES salas_sucursal(id_sala)
 );

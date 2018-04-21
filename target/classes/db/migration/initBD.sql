@@ -75,83 +75,12 @@ VALUES (1,3, 10,3);
 
 
 
-
-
-CREATE TABLE salas_sucursal
+CREATE TABLE disp_salas
 (
 id_sala INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-id_sucursal INT UNSIGNED,
-id_tipo_sala  INT UNSIGNED,
-num_fila INT UNSIGNED,
-num_silla_fila INT UNSIGNED,
-FOREIGN KEY (id_sucursal) REFERENCES sucursales(id_sucursal),
-FOREIGN KEY (id_tipo_sala) REFERENCES tipos_salas(id_tipo_sala)
+ubicacion  VARCHAR(25) NOT NULL,
+estado VARCHAR(1) NOT NULL,
+fecha VARCHAR(25) NULL,
+dia_cerrado VARCHAR(1) NULL,
+FOREIGN KEY (id_sala) REFERENCES salas_sucursal(id_sala)
 );
-
-
-
-
-
-
-
-CREATE TABLE reservas
-(
-id_reserva INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-id_vuelo INT UNSIGNED NOT NULL,
-id_cedula INT UNSIGNED NOT NULL,
-nom_cliente  VARCHAR(50) NOT NULL,
-vlr_tiquete DOUBLE(7,1) NOT NULL,
-fec_venta  VARCHAR(25) NOT NULL,
-solo_ida VARCHAR(1) NOT NULL,
-fec_ida VARCHAR(25) NOT NULL,
-fec_regreso VARCHAR(25) NULL,
-FOREIGN KEY (id_vuelo) REFERENCES vuelos(id)
-);
-
-
-
-INSERT INTO vuelos (
-id_origen,
-nom_origen,
-id_dest ,
-nom_dest,
-hora_inic  ,
-hora_fin ,
-vlr_ida ,
-Vlr_idavuelta ,
-porc_finsemana)
- VALUES (2,'Cartagena',1,'Medellin','18:19:03', '18:19:03',120000,200000,25.9);
- 
- INSERT INTO vuelos (
-id_origen,
-nom_origen,
-id_dest ,
-nom_dest,
-hora_inic  ,
-hora_fin ,
-vlr_ida ,
-Vlr_idavuelta ,
-porc_finsemana)
- VALUES (4,'Bogota',1,'Medellin','18:19:03', '18:19:03',120000,200000,25.9);
- 
- INSERT INTO reservas (
-id_vuelo ,
-id_cedula ,
-nom_cliente,
-vlr_tiquete,
-fec_venta,
-solo_ida ,
-fec_ida ,
-fec_regreso)
- VALUES (1, 1067859785,'Pedro Hincapie',150000, NOW(),'S','29-10-2017','01-12-2017');
- 
-  INSERT INTO reservas (
-id_vuelo ,
-id_cedula ,
-nom_cliente,
-vlr_tiquete,
-fec_venta,
-solo_ida ,
-fec_ida ,
-fec_regreso)
- VALUES (2, 1067859785,'Pedro Hincapie',235000, NOW(),'N','19-10-2017','01-12-2017');
